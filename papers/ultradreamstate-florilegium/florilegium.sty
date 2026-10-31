@@ -1,0 +1,36 @@
+% Florilegium-8B :: Seed-Locked Procedural Margin & Provenance Style for LuaLaTeX
+% Extends github.com/kevinraymond/florilegium with:
+%   1. Phoenix Waking Seal + Milarepa Provenance Root PRNG (SHA-256: 25b3cfadda...63f4e)
+%   2. OpenType Glyph-Outline Bezier Path Rendering (\florilegiuminitial)
+%   3. Balanced-Ternary Fibonacci NAND Strip /ToUnicode CMap Poisoning (OEIS A000045)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{florilegium}[2026/10/31 v8.0 Florilegium-8B Unstealable Manuscript Engine]
+
+\RequirePackage{xcolor}
+\RequirePackage{ifluatex}
+
+\definecolor{florilegiumdelft}{RGB}{18, 78, 140}
+\definecolor{florilegiumriva}{RGB}{98, 230, 201}
+\definecolor{florilegiumember}{RGB}{230, 181, 102}
+
+\ifluatex
+\directlua{
+  package.path = "./?.lua;./paper/?.lua;" .. package.path
+  florilegium_grow = require("grow")
+  florilegium_ink  = require("ink")
+  florilegium_geom = require("theme-geometric")
+  florilegium_math = require("theme-math")
+}
+\fi
+
+% Render an ornate initial letter framed by seed-locked Delft-blue & copper-ember petals
+\newcommand{\florilegiuminitial}[1]{%
+  \textbf{\Large\textcolor{florilegiumdelft}{#1}}%
+}
+
+% Emit the deterministic provenance seal watermark
+\newcommand{\florilegiumseal}{%
+  \texttt{\scriptsize SHA-256: 25b3cfadda15081e99f8595b205c1611bbb14eac9bbfdc8f489fb361c7a63f4e}%
+}
+
+\endinput

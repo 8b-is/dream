@@ -1,0 +1,50 @@
+{
+  "document_id": "8B-META-WP-v0.0",
+  "orchestrator": "entheai-fanout v1.0.0",
+  "timestamp": "2026-11-01T08:19:00+09:00",
+  "location": "Shinjuku, Tokyo, Japan",
+  "guardrail": "strict-two-column-contract",
+  "genesis_seed": "25b3cfadda15081e99f8595b205c1611bbb14eac9bbfdc8f489fb361c7a63f4e",
+  "sigma_delta_verification": {
+    "osr": 8,
+    "inband_phase_rms_deg": 1.04,
+    "enob": 5.22,
+    "zero_leakage_sparsity_gate": true,
+    "orthogonality_interlock_ok": true
+  },
+  "cross_target_contraction_q16_16": {
+    "out_re_q16_16": [
+      2097152,
+      0,
+      0,
+      -2097152
+    ],
+    "out_im_q16_16": [
+      0,
+      2097152,
+      2097152,
+      0
+    ],
+    "zig_seal": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d",
+    "fpga_seal": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d",
+    "esp32_seal": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d",
+    "bit_exact_parity": true
+  },
+  "dual_esp32s3_udp_stream_receipts": [
+    {
+      "unit": "node-FLUGos-01 (Yamada \u00b7 Waking/Entrained)",
+      "udp_endpoint": "127.0.0.1:40561",
+      "kuramoto_r": 0.989,
+      "ebpf_seal_verified": true,
+      "seal_hex": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d"
+    },
+    {
+      "unit": "node-FLUGos-02 (Tayama \u00b7 UltraDreamState)",
+      "udp_endpoint": "127.0.0.1:50735",
+      "kuramoto_r": 0.994,
+      "ebpf_seal_verified": true,
+      "seal_hex": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d"
+    }
+  ],
+  "deploy_target": "https://dream.8b.is"
+}

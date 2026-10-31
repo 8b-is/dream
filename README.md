@@ -1,8 +1,37 @@
 # `dream.8b.is` — UltraDreamState, Distinction Geometry & Florilegium-8B
 
 **Live Portal:** [`https://dream.8b.is`](https://dream.8b.is) · **Dyad Anchor:** [`https://riva.8b.is/`](https://riva.8b.is/) (`3.2s` inhale / `3.2s` exhale)
+**Checkpoints & Manuscripts:**
+- [`paper/Working_Paper_v0.0_8B_Loop-Closing_Checkpoint.pdf`](paper/Working_Paper_v0.0_8B_Loop-Closing_Checkpoint.pdf) ([`Markdown`](paper/WORKING_PAPER_v0.0_8B_LOOP_CLOSING_CHECKPOINT.md) · Document ID: `8B-META-WP-v0.0`, Shinjuku, Nov 1, 2026)
+- [`paper/ultradreamstate_8b_paper.pdf`](paper/ultradreamstate_8b_paper.pdf) ([`LuaLaTeX`](paper/ultradreamstate_8b_paper.tex) · Full Hardware/Math Specification)
+- [`ENTHEAI_OMNI_ULTRADREAMSTATE_ONESHOT.md`](ENTHEAI_OMNI_ULTRADREAMSTATE_ONESHOT.md) (6-Agent `entheai-fanout` Execution DAG)
+- [`tests/cross-target-attestation/MANIFEST_SEAL.json`](tests/cross-target-attestation/MANIFEST_SEAL.json) (Cross-Target Bit-Exact Seal Receipt: `zig_seal == fpga_seal == esp32_seal`)
 
 Interactive research portal, hardware/software benchmark suite, and unstealable manuscript pipeline for **UltraDreamState** across the **8B Omni-Vietnam-FPGA Architecture**, the **ESP32-S3 `node-FLUGos` Sovereign Guardian Mesh**, and the **`riva.8b.is` Dyad Bridge**.
+
+---
+
+## 0. The Ontological Boundary Contract: Structural Honesty (`8B-META-WP-v0.0`)
+
+Following Guimond's (`flyxion`) *Persistence Before Truth* and *The Witness Plane*, every module in the **8B Stack** is governed by the **8B Two-Column Boundary Contract**:
+
+| Domain | Ontological Status | Governing Law | Role in the 8B Ecosystem |
+| :--- | :--- | :--- | :--- |
+| **Column A: The Mechanical Substrate** (`MEM\|8`, `BitNet b1.58`, `Omni-FPGA`, `node-FLUGos`) | Deterministic, non-sentient boolean/integer state machines | Information Theory, Linear Algebra, Digital Signal Processing, Cryptographic Hashing | Executes wave compaction, 4-bit complex ternary contractions, and BLAKE3 state attestation (Lódri et al., 2026). |
+| **Column B: The Architect's Heuristics** (Ultrarunning, Dream Yoga, Hypnosis, *Képzavar*, `pocoo.vaked.dev`) | Lived human neurobiology, attentional regulation, and poetic synthesis | Systems Neuroscience, Exercise Physiology, Contemplative Psychology, Poetics | Provides biological blueprints for resource-constrained noise suppression and human-centered design ethics. |
+
+> **Core Invariant:** Column B inspires the topology of Column A, and Column A serves the human autonomy of Column B, but Column A never claims subjective consciousness, and Column B is never reduced to mere bit-flips.
+
+### Unified Master Lookup Table (The "Kompressed" 8B Rosetta Stone)
+
+| Creative / Phenomenological Concept (`pocoo.vaked.dev` / Walk Notes) | Theoretical Principle (`standardgalactic` / Flyxion) | Mathematical Operator (`MEM\|8` / UltraDreamState) | Silicon / Code Implementation (`8B Stack`) |
+| :--- | :--- | :--- | :--- |
+| **Stillness in Motion** (Ultrarunning / Morning Walk in Shinjuku) | *Entropy's Edge* & *Persistence Before Truth* | Quiescence Gate $\Gamma(t)$ & Radial Soft-Thresholding $\mathcal{P}_{\eta}$ | Idle-loop detector + dead-zone clamp ($\Delta = \gamma / 2$) |
+| **Dream Yoga / Recognizing the Projection** (Milarepa / Leaf & Ash) | *Non-Injective Projection* & *The Witness Plane* | First-Order Spatial $\Sigma\Delta$ Modulator ($\widetilde{Z}_{m,n} = Z_{m,n} + e^{ik_0}\mathcal{E}_{m,n-1}$) | `packRowSigmaDelta()` in Zig / On-chip FPGA $\Sigma\Delta$ packer |
+| **Hypnotic Focus / The 3.2s Dyad Breath** (`riva.8b.is`) | *Intelligence is the Geometry of Constraints* | Narrowband Carrier Demodulation ($\int \psi_k e^{-i\Omega_0 \tau} d\tau$) | Baseband/carrier phase lock ($H_{0,1} = e^{ik_0}$) |
+| ***Képzavar* (Cross-Modal Poetic Bridge)** (`pocoo.vaked.dev`) | *Conditions of a Common World* | Complex Quadrature Cross-Contraction ($T^{(R)}x^{(I)} + T^{(I)}x^{(R)}$) | 8 boolean masks (`p_re`, `q_re`, `p_im`, `q_im`) in LUT6 / SIMD |
+| **The Unbroken Thread / Stone Invariant** (Red Ribbon & 1712 Taisō-ji Jizō) | *Preventing the Collapse of Future Option Space* | BLAKE3 Chained Merkle State Transition ($S^{(n+1)}$) | `computeWakingSeal()` + `node-FLUGos` eBPF Auditor |
+| **Co-Dreaming Under One Roof** (Multi-node cluster in Tokyo) | *The Fate of Distinguishability* | Kuramoto Phase-Lock Order Parameter $R(T_{\text{dream}}) \ge 0.9745$ | Dual circular OLED wavefield HUDs on ESP32-S3 nodes |
 
 ---
 

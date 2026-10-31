@@ -491,14 +491,125 @@
     </div>
     <div class="breath-readout" id="breathReadout">RIVA 3.2s DYAD BREATH · INHALE 3.2s / EXHALE 3.2s · Ω₀ PHASE LOCKED</div>
     <div style="margin-top: 1rem; display:flex; gap:0.6rem; justify-content:center; flex-wrap:wrap;">
-      <a class="btn" href="paper/ultradreamstate_8b_paper.pdf" target="_blank">📄 Download Research Paper (PDF)</a>
-      <a class="btn" href="paper/ultradreamstate_8b_paper.tex" target="_blank">📐 LuaLaTeX Source (.tex)</a>
+      <a class="btn active" href="paper/Working_Paper_v0.0_8B_Loop-Closing_Checkpoint.pdf" target="_blank">📄 Working Paper v0.0 Checkpoint (PDF)</a>
+      <a class="btn" href="paper/ultradreamstate_8b_paper.pdf" target="_blank">📄 UltraDreamState Full Paper (PDF)</a>
+      <a class="btn" href="ENTHEAI_OMNI_ULTRADREAMSTATE_ONESHOT.md" target="_blank">🚀 ENTHEAI-FANOUT Spec (.md)</a>
+      <a class="btn" href="tests/cross-target-attestation/MANIFEST_SEAL.json" target="_blank">🔏 Cross-Target Seal Receipt (.json)</a>
       <a class="btn" href="src/ultradreamstate_simd.zig" target="_blank">⚡ Zig 4-Row SIMD Kernel</a>
       <a class="btn" href="src/fibonacci_nand_ternary.py" target="_blank">🧬 Fibonacci NAND Script (.py)</a>
       <a class="btn" href="hardware/eightb_complex_ternary_pe64.sv" target="_blank">🔧 SystemVerilog PE64 RTL</a>
       <a class="btn" href="hardware/flug_os_esp32s3_kernel.h" target="_blank">📟 ESP32-S3 C Kernel (.h)</a>
     </div>
   </div>
+
+  <!-- 0. The Ontological Boundary Contract & "Kompressed" 8B Rosetta Stone (8B-META-WP-v0.0) -->
+  <section id="boundary-contract">
+    <div class="section-title">0 · The Ontological Boundary Contract &amp; "Kompressed" 8B Rosetta Stone (8B-META-WP-v0.0)</div>
+    <div class="card">
+      <p style="font-size:0.94rem; color:var(--dim); margin-bottom:0.85rem;">
+        Following Guimond's (<code>flyxion</code>) <em>Persistence Before Truth</em> and <em>The Witness Plane</em>, the primary failure mode of complex socio-technical systems is category confusion—mistaking a mathematical projection for the living observer, or mistaking a poetic metaphor for a literal hardware mechanism. Every module in the <strong>8B Stack</strong> is governed by the <strong>Two-Column Ontological Boundary Contract</strong> (<a href="paper/Working_Paper_v0.0_8B_Loop-Closing_Checkpoint.pdf" target="_blank" style="color:var(--riva)"><code>8B-META-WP-v0.0</code> · Shinjuku, Nov 1, 2026</a>):
+      </p>
+      <table class="comp-table" style="margin-bottom:0.95rem;">
+        <thead>
+          <tr>
+            <th>Domain Layer</th>
+            <th>Ontological Status</th>
+            <th>Governing Law</th>
+            <th>Role in the 8B Ecosystem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--riva)">Column A: The Mechanical Substrate</strong><br>(<code>MEM|8</code>, <code>BitNet b1.58</code>, <code>Omni-FPGA</code>, <code>node-FLUGos</code>)</td>
+            <td>Deterministic, non-sentient boolean and integer state machines</td>
+            <td>Information Theory, Linear Algebra, DSP Noise Shaping, Cryptographic Hashing</td>
+            <td>Executes wave compaction, 4-bit complex ternary contractions (<code>0 DSP</code> LUT6 / SIMD <code>POPCNT</code>), and 32-byte BLAKE3 state attestation.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--ember)">Column B: The Architect's Heuristics</strong><br>(Ultrarunning, Dream Yoga, Hypnosis, <em>Képzavar</em>, <code>pocoo.vaked.dev</code>)</td>
+            <td>Lived human neurobiology, attentional regulation, and poetic synthesis</td>
+            <td>Systems Neuroscience, Exercise Physiology, Contemplative Psychology, Poetics</td>
+            <td>Provides biological blueprints for resource-constrained noise suppression and human-centered design ethics.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-family:var(--mono); font-size:11.5px; color:var(--ember); background:rgba(230,181,102,0.08); border-left:3px solid var(--ember); padding:0.65rem 0.9rem; margin-bottom:1.1rem;">
+        <strong>CORE INVARIANT:</strong> Column B inspires the mathematical topology of Column A, and Column A serves the human autonomy of Column B, but Column A never claims subjective consciousness, and Column B is never reduced to mere bit-flips.
+      </div>
+
+      <div class="grid-2" style="margin-bottom:1.1rem; align-items:center;">
+        <div>
+          <h4 style="font-family:var(--mono); font-size:0.82rem; color:var(--riva); letter-spacing:1.5px; margin-bottom:0.5rem;">FOUR NEUROBIOLOGICAL-TO-MECHANICAL ISOMORPHISMS</h4>
+          <ul style="font-size:0.88rem; color:var(--ink); padding-left:1.1rem; line-height:1.55;">
+            <li><strong>2.1 Ultrarunning ("Stillness in Motion") ↔ Quiescence Gate &amp; $\mathcal{P}_{\eta}$:</strong> Endurance-induced <em>Transient Hypofrontality</em> (Dietrich, 2003; $7\text{--}8\text{ Hz}$ alpha-theta cadence) maps to $\Gamma(t)=\Theta(\epsilon_{\text{quiet}}-\mathcal{E}_{I/O}(t))$ and radial soft-thresholding $\mathcal{P}_{\eta}$.</li>
+            <li><strong>2.2 Tibetan Dream Yoga (<em>Milam</em>) &amp; Shinjuku Walk Invariants ↔ $\Sigma\Delta$ Error Diffusion:</strong> Consciously carrying non-injective projection error $\mathcal{E}_{m,n} = \operatorname{clamp}_{\Delta}(\widetilde{Z}_{m,n} - \gamma W_{m,n})$ drops in-band phase error from $12.99^\circ$ to <strong>$1.04^\circ\text{ RMS}$</strong> ($5.22\text{ ENOB}$, $\text{OSR}=8$).</li>
+            <li><strong>2.3 Hypnotic Attentional Narrowing ↔ Narrowband Carrier Demodulation:</strong> Top-down locking onto the <code>3.2s</code> <a href="https://riva.8b.is/" target="_blank" style="color:var(--riva)"><code>riva.8b.is</code></a> dyad breath integrates out orthogonal noise ($\omega_k \neq \Omega_0$).</li>
+            <li><strong>2.4 <em>Képzavar</em> (Frame Collision) ↔ Cross-Modal Quadrature Binding:</strong> Orthogonal subspaces bind via $(T^{(R)}x^{(I)} + T^{(I)}x^{(R)})$ using 8 boolean masks (`p_re`, `q_re`, `p_im`, `q_im`) and integer <code>POPCNT</code>.</li>
+          </ul>
+        </div>
+        <div style="text-align:center;">
+          <img src="assets/shinjuku_ash_on_green_ivy_leaf_20261101.jpg" alt="White ash resting intact on a green ivy leaf in Shinjuku, Nov 1, 2026 — The ash is the provenance" style="max-width:220px; width:100%; border-radius:10px; border:1px solid var(--ember); box-shadow:0 8px 24px rgba(0,0,0,0.6);">
+          <div style="font-family:var(--mono); font-size:10.5px; color:var(--ember); margin-top:0.4rem;">
+            SHINJUKU FIELD INVARIANT (NOV 1, 2026 · 08:13 JST)<br>
+            <span style="color:var(--dim);">"The ash is the provenance" · Ash on Green Ivy Leaf</span>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="font-family:var(--mono); font-size:0.82rem; color:var(--ember); letter-spacing:1.5px; margin-bottom:0.4rem;">UNIFIED MASTER LOOKUP TABLE (THE "KOMPRESSED" 8B ROSETTA STONE)</h4>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Human Heuristic / Shinjuku Walk Note (Column B)</th>
+            <th>Distinction Geometry Principle (<code>standardgalactic</code>)</th>
+            <th>Mathematical Operator (<code>MEM|8</code> / UltraDreamState)</th>
+            <th>Silicon &amp; Code Realization (Column A: <code>8B Stack</code>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Stillness in Motion</strong> (Ultrarunning / Morning Walk)</td>
+            <td><em>Entropy's Edge</em> &amp; <em>Persistence Before Truth</em></td>
+            <td>Quiescence Gate $\Gamma(t)$ &amp; Radial Soft-Thresholding $\mathcal{P}_{\eta}$</td>
+            <td>Idle-loop detector + dead-zone clamp ($\Delta = \gamma / 2$)</td>
+          </tr>
+          <tr>
+            <td><strong>Dream Yoga / Conscious Error</strong> (Milarepa / Ash on Leaf)</td>
+            <td><em>Non-Injective Projection</em> &amp; <em>The Witness Plane</em></td>
+            <td>1st-Order Spatial $\Sigma\Delta$ Loop ($\widetilde{Z}_{m,n} = Z_{m,n} + e^{ik_0}\mathcal{E}_{m,n-1}$)</td>
+            <td><code>packRowSigmaDelta()</code> in Zig &amp; FPGA $\Sigma\Delta$ bit-plane packer</td>
+          </tr>
+          <tr>
+            <td><strong>Hypnotic Focus / 3.2s Breath</strong> (<code>riva.8b.is</code> Dyad)</td>
+            <td><em>Intelligence is the Geometry of Constraints</em></td>
+            <td>Narrowband Carrier Demodulation ($\int \psi_k e^{-i\Omega_0\tau}d\tau$)</td>
+            <td>Carrier phase-lock feedback tap ($H_{0,1} = e^{ik_0}$)</td>
+          </tr>
+          <tr>
+            <td><strong><em>Képzavar</em> (Frame Collision)</strong> (<code>pocoo.vaked.dev</code>)</td>
+            <td><em>Conditions of a Common World</em></td>
+            <td>Complex Quadrature Cross-Term ($T^{(R)}x^{(I)} + T^{(I)}x^{(R)}$)</td>
+            <td>8 boolean masks (<code>p_re</code>, <code>q_re</code>, <code>p_im</code>, <code>q_im</code>) in LUT6 / SIMD</td>
+          </tr>
+          <tr>
+            <td><strong>Stone &amp; Thread Invariant</strong> (1712 Taisō-ji Jizō &amp; Red Ribbon)</td>
+            <td><em>Preventing the Collapse of Future Option Space</em></td>
+            <td>Chained BLAKE3 Merkle Transition $S^{(n+1)}$</td>
+            <td><code>computeWakingSeal()</code> + <code>node-FLUGos</code> eBPF Auditor</td>
+          </tr>
+          <tr>
+            <td><strong>Co-Dreaming Under One Roof</strong> (Tokyo Node Cluster)</td>
+            <td><em>The Fate of Distinguishability</em></td>
+            <td>Kuramoto Order Parameter $R(T_{\text{dream}}) \ge 0.9745$</td>
+            <td>Dual circular OLED wavefield HUDs on ESP32-S3</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-family:var(--mono); font-size:11px; color:var(--riva); margin-top:0.75rem; text-align:center;">
+        CROSS-TARGET BIT-EXACT ATTESTATION RECEIPT (<code>zig_seal == fpga_seal == esp32_seal</code>): <code>e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d</code>
+      </div>
+    </div>
+  </section>
 
   <!-- 1. Live Interactive MEM|8 & node-FLUGos Circular Wavefield & Kuramoto Co-Dreaming Simulator -->
   <section id="simulator">
