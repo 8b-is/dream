@@ -1,0 +1,24 @@
+# dream.8b.is — Sovereign Caddyfile Configuration
+# Let's Encrypt TLS + Security Headers + 9b.is/@orchestrator Git Sync Hook
+
+dream.8b.is {
+    root * /data/8b-is/dream
+    encode zstd gzip
+
+    header {
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        X-8B-Anchor "https://riva.8b.is/ (3.2s dyad breath)"
+        X-8B-Provenance-Root "SHA-256: 25b3cfadda15081e99f8595b205c1611bbb14eac9bbfdc8f489fb361c7a63f4e"
+        X-8B-Fibonacci-NAND-Strip "00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+"
+    }
+
+    handle /paper/pdf {
+        rewrite * /paper/ultradreamstate_8b_paper.pdf
+        file_server
+    }
+
+    file_server
+}

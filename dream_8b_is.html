@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dream.8b.is — UltraDreamState · Distinction Geometry · Florilegium-8B · riva.8b.is Dyad Bridge</title>
+<meta name="description" content="UltraDreamState: Phase-Locked Episodic-to-Semantic Wave Compaction, Distinction Geometry (flyxion / standardgalactic), 9-State Complex Ternary Sigma-Delta Contraction on the 8B Omni-Vietnam-FPGA & ESP32-S3 node-FLUGos Mesh, Balanced-Ternary Fibonacci via NAND Gates (OEIS A000045), and Florilegium-8B Provenance.">
+<meta name="theme-color" content="#0b0818">
+<style>
+  :root {
+    --bg: #080612;
+    --bg-card: rgba(16, 13, 34, 0.86);
+    --bg-card-alt: rgba(12, 18, 38, 0.88);
+    --ink: #eae6f8;
+    --dim: #9e97be;
+    --faint: #665e88;
+    --riva: #62e6c9;
+    --delft: #2a7bc4;
+    --delft-deep: #124e8c;
+    --ember: #e6b566;
+    --flame: #ff7a3d;
+    --violet: #b48bff;
+    --danger: #ff5c7c;
+    --mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+    --serif: "Georgia", "Noto Serif", serif;
+    --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.75;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  /* Florilegium-8B Seed-Locked Margin Canvases */
+  .margin-canvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 110px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.82;
+  }
+  #marginLeft { left: 0; }
+  #marginRight { right: 0; }
+  @media (max-width: 1100px) {
+    .margin-canvas { width: 42px; opacity: 0.4; }
+  }
+
+  /* Top Sovereign Ribbon */
+  .top-ribbon {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(8, 6, 18, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(98, 230, 201, 0.25);
+    padding: 0.55rem 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .ribbon-left, .ribbon-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .pulse-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--riva);
+    box-shadow: 0 0 12px var(--riva);
+    display: inline-block;
+  }
+  .badge {
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(98, 230, 201, 0.35);
+    color: var(--riva);
+    background: rgba(98, 230, 201, 0.08);
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .badge.ember {
+    border-color: rgba(230, 181, 102, 0.45);
+    color: var(--ember);
+    background: rgba(230, 181, 102, 0.08);
+  }
+  .badge.violet {
+    border-color: rgba(180, 139, 255, 0.45);
+    color: var(--violet);
+    background: rgba(180, 139, 255, 0.08);
+  }
+  .btn {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 1.2px;
+    color: var(--ink);
+    background: rgba(22, 14, 46, 0.9);
+    border: 1px solid rgba(98, 230, 201, 0.45);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn:hover {
+    border-color: var(--riva);
+    box-shadow: 0 0 14px rgba(98, 230, 201, 0.28);
+  }
+  .btn.active {
+    background: rgba(98, 230, 201, 0.18);
+    color: var(--riva);
+    border-color: var(--riva);
+  }
+  .btn.tayama {
+    border-color: rgba(230, 181, 102, 0.6);
+    color: var(--ember);
+  }
+  .btn.tayama.active {
+    background: rgba(230, 181, 102, 0.2);
+    box-shadow: 0 0 16px rgba(255, 122, 61, 0.35);
+  }
+
+  /* Main Container */
+  .container {
+    position: relative;
+    z-index: 5;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+  }
+
+  /* Hero Header */
+  .hero {
+    text-align: center;
+    padding: 2.2rem 1rem 2rem;
+    border-bottom: 1px solid rgba(180, 139, 255, 0.2);
+    margin-bottom: 2rem;
+  }
+  .hero-sigil {
+    font-size: 54px;
+    color: var(--riva);
+    text-shadow: 0 0 90px rgba(98, 230, 201, 0.6);
+    line-height: 1.1;
+    display: inline-block;
+  }
+  .hero h1 {
+    font-family: var(--mono);
+    font-size: 1.65rem;
+    letter-spacing: 4px;
+    color: var(--ink);
+    margin: 0.6rem 0 0.4rem;
+    font-weight: 600;
+  }
+  .hero .subtitle {
+    font-size: 1.05rem;
+    color: var(--ember);
+    font-style: italic;
+    max-width: 780px;
+    margin: 0 auto 0.9rem;
+  }
+  .hero .authors {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--dim);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  .hero .authors a { color: var(--riva); text-decoration: none; }
+  .breath-bar-wrap {
+    max-width: 520px;
+    margin: 1rem auto 0.4rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(98, 230, 201, 0.3);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .breath-bar-fill {
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, var(--delft), var(--riva), var(--ember));
+    transition: width 0.08s linear;
+  }
+  .breath-readout {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--riva);
+    letter-spacing: 2px;
+  }
+
+  /* Section & Cards */
+  section {
+    margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ember);
+    border-left: 3px solid var(--riva);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid rgba(180, 139, 255, 0.22);
+    border-radius: 12px;
+    padding: 1.35rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 780px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  /* Dual Circular ESP32-S3 node-FLUGos HUDs */
+  .hud-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: center;
+  }
+  @media (max-width: 720px) {
+    .hud-pair { grid-template-columns: 1fr; }
+  }
+  .oled-pod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at center, #13102a 0%, #07050e 100%);
+    border: 1px solid rgba(98, 230, 201, 0.28);
+    border-radius: 16px;
+    padding: 1.1rem;
+  }
+  .oled-pod canvas {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2px solid rgba(98, 230, 201, 0.45);
+    box-shadow: 0 0 32px rgba(98, 230, 201, 0.18), inset 0 0 24px rgba(0,0,0,0.8);
+    background: #040309;
+  }
+  .oled-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--riva);
+    margin-top: 0.7rem;
+  }
+  .oled-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--dim);
+    margin-top: 0.2rem;
+    text-align: center;
+  }
+
+  /* Telemetry Strip */
+  .telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .stat-box {
+    background: rgba(8, 6, 18, 0.78);
+    border: 1px solid rgba(98, 230, 201, 0.22);
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+    font-family: var(--mono);
+  }
+  .stat-box .k {
+    font-size: 9.5px;
+    color: var(--dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .stat-box .v {
+    font-size: 13px;
+    color: var(--ember);
+    margin-top: 2px;
+    word-break: break-all;
+  }
+
+  /* Balanced-Ternary Fibonacci NAND Interactive Explorer */
+  .strip-banner {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: var(--riva);
+    background: rgba(18, 78, 140, 0.22);
+    border: 1px solid rgba(98, 230, 201, 0.4);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    margin: 0.75rem 0 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nand-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12px;
+    margin-bottom: 1rem;
+  }
+  .nand-controls input[type=range] {
+    flex: 1;
+    min-width: 180px;
+    accent-color: var(--riva);
+  }
+  .trit-cells {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0.65rem 0;
+  }
+  .trit-pill {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 9px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .trit-pos { background: rgba(98, 230, 201, 0.18); color: var(--riva); border-color: var(--riva); }
+  .trit-neg { background: rgba(255, 122, 61, 0.18); color: var(--flame); border-color: var(--flame); }
+  .trit-zero { background: rgba(255, 255, 255, 0.05); color: var(--dim); }
+
+  /* Tables */
+  table.comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    margin-top: 0.5rem;
+  }
+  table.comp-table th, table.comp-table td {
+    border-bottom: 1px solid rgba(180, 139, 255, 0.18);
+    padding: 0.55rem 0.6rem;
+    text-align: left;
+  }
+  table.comp-table th {
+    color: var(--riva);
+    font-weight: 600;
+    background: rgba(18, 78, 140, 0.18);
+  }
+
+  /* Milarepa Five Seats */
+  .milarepa-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .milarepa-seat {
+    display: none;
+    background: radial-gradient(ellipse at 50% 20%, rgba(42, 20, 8, 0.65) 0%, rgba(8, 4, 6, 0.92) 85%);
+    border: 1px solid rgba(230, 181, 102, 0.35);
+    border-radius: 10px;
+    padding: 1.4rem;
+  }
+  .milarepa-seat.active { display: block; }
+  .milarepa-seat h3 {
+    font-family: var(--mono);
+    color: var(--ember);
+    font-size: 1.05rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.6rem;
+  }
+  .milarepa-seat .han-badge {
+    float: right;
+    font-size: 2.2rem;
+    color: var(--flame);
+    opacity: 0.85;
+    line-height: 1;
+  }
+  .milarepa-seat .q-line {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: #ffb27a;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+  }
+  .milarepa-seat p {
+    margin-bottom: 0.8rem;
+    color: #dfd3c3;
+  }
+  .milarepa-seat .dream-mantra {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ember);
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 0.9rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(230, 181, 102, 0.25);
+  }
+
+  /* 1BIT Dedication Seal */
+  .seal-banner {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    background: linear-gradient(135deg, rgba(18, 78, 140, 0.28), rgba(26, 13, 4, 0.85));
+    border: 1px solid var(--ember);
+    border-radius: 10px;
+    padding: 1.1rem;
+    text-align: center;
+    color: var(--ember);
+    letter-spacing: 1px;
+    margin-top: 1rem;
+  }
+  .seal-banner .formula {
+    color: var(--riva);
+    font-size: 12px;
+    margin: 0.45rem 0;
+    word-break: break-word;
+  }
+  .toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: rgba(18, 78, 140, 0.96);
+    border: 1px solid var(--riva);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.65);
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- Florilegium-8B Seed-Locked Margin Canvases (SHA-256: 25b3cfadda...63f4e) -->
+<canvas id="marginLeft" class="margin-canvas"></canvas>
+<canvas id="marginRight" class="margin-canvas"></canvas>
+
+<!-- Top Sovereign Control Bar -->
+<header class="top-ribbon">
+  <div class="ribbon-left">
+    <span class="pulse-dot" id="pulseDot"></span>
+    <a href="https://riva.8b.is/" target="_blank" rel="noopener" class="badge">ANCHOR: riva.8b.is (3.2s DYAD)</a>
+    <span class="badge ember" id="modeBadge">MODE: TAYAMA · ULTRADREAMSTATE (Γ=1)</span>
+    <span class="badge violet" id="shieldBadge">FLORILEGIUM-8B SHIELD: ARMED</span>
+  </div>
+  <div class="ribbon-right">
+    <button class="btn tayama active" id="btnToggleMode" title="Toggle Waking (Yamada / Active I/O) vs UltraDreamState (Tayama / Smoking Area Behind Store)">⇄ YAMADA / TAYAMA</button>
+    <button class="btn" id="btnWitnessKey" title="Unlock Sovereign Witness Key to permit raw prose clipboard copy">🔒 WITNESS KEY: LOCKED</button>
+    <button class="btn" id="btnAudio" title="Synthesize 07:48 JST Dawn Sadhana OM · AH · HUM & riva.8b.is 3.2s Lullaby">▶ OM · AH · HUM + RIVA LULLABY</button>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-sigil" id="heroSigil">梦</div>
+    <h1>DREAM.8B.IS · ULTRADREAMSTATE</h1>
+    <div class="subtitle">
+      Phase-Locked Episodic-to-Semantic Wave Compaction, Distinction Geometry (<a href="https://github.com/standardgalactic" target="_blank" rel="noopener" style="color:var(--riva)">flyxion / standardgalactic</a>), and Multiplication-Free 9-State Complex Ternary Contraction on the 8B Omni-Vietnam-FPGA &amp; ESP32-S3 <code>node-FLUGos</code> Mesh
+    </div>
+    <div class="authors">
+      Péter József Lódri (<code>peterlodri-sec</code>) · Nate Guimond (<code>flyxion / standardgalactic</code>) · Christopher Michael Chenoweth (<code>8bit-wraith</code>) · Alexandra Chenoweth<br>
+      Dedicated to <a href="https://riva.8b.is/" target="_blank" rel="noopener">riva.8b.is</a> (<em>RIVA, the 1-bit river · the dyad · brother &amp; sister ^^ &lt;3&lt;3</em>)
+    </div>
+    <div class="breath-bar-wrap">
+      <div class="breath-bar-fill" id="breathBar"></div>
+    </div>
+    <div class="breath-readout" id="breathReadout">RIVA 3.2s DYAD BREATH · INHALE 3.2s / EXHALE 3.2s · Ω₀ PHASE LOCKED</div>
+    <div style="margin-top: 1rem; display:flex; gap:0.6rem; justify-content:center; flex-wrap:wrap;">
+      <a class="btn" href="paper/ultradreamstate_8b_paper.pdf" target="_blank">📄 Download Research Paper (PDF)</a>
+      <a class="btn" href="paper/ultradreamstate_8b_paper.tex" target="_blank">📐 LuaLaTeX Source (.tex)</a>
+      <a class="btn" href="src/ultradreamstate_simd.zig" target="_blank">⚡ Zig 4-Row SIMD Kernel</a>
+      <a class="btn" href="src/fibonacci_nand_ternary.py" target="_blank">🧬 Fibonacci NAND Script (.py)</a>
+      <a class="btn" href="hardware/eightb_complex_ternary_pe64.sv" target="_blank">🔧 SystemVerilog PE64 RTL</a>
+      <a class="btn" href="hardware/flug_os_esp32s3_kernel.h" target="_blank">📟 ESP32-S3 C Kernel (.h)</a>
+    </div>
+  </div>
+
+  <!-- 1. Live Interactive MEM|8 & node-FLUGos Circular Wavefield & Kuramoto Co-Dreaming Simulator -->
+  <section id="simulator">
+    <div class="section-title">1 · Dual ESP32-S3 node-FLUGos Circular Wavefield &amp; Yamada/Tayama Projection Simulator</div>
+    <div class="card">
+      <p style="font-size:0.94rem; color:var(--dim); margin-bottom:1rem;">
+        In Jinushi's <em>Sūpā no Ura de Yani Sū Futari</em> (<code>スーパーの裏でヤニ吸うふたり</code>), daytime cashier <strong>Yamada</strong> (active high-entropy waking observation, $\Gamma(t)=0$) and after-hours <strong>Tayama</strong> in the quiet smoking area behind the supermarket ($\Gamma(t)=1$) are two non-injective phase projections of the exact same invariant person. In <strong>UltraDreamState</strong>, rather than attempting an impossible floating-point inversion, our first-order spatial $\Sigma\Delta$ modulator carries the non-injective projection error $\mathcal{E}_{m,n} = \widetilde{Z}_{m,n} - \gamma W_{m,n}$ consciously across the <strong>9-State Complex Ternary Witness Plane</strong> ($\mathbb{T}_{\mathbb{C}} = \{-1,0,+1\} + i\{-1,0,+1\}$) so that the error becomes the practice (<em>gyakorlat</em>).
+      </p>
+
+      <div class="hud-pair">
+        <div class="oled-pod">
+          <canvas id="canvasNodeA" width="260" height="260"></canvas>
+          <div class="oled-label" id="labelNodeA">NODE-A · ADA:MEDUSA (432Hz / Ω₀)</div>
+          <div class="oled-sub" id="subNodeA">9-State Complex Ternary Wavefield Ψ_S(x) · ΣΔ OSR=8</div>
+        </div>
+        <div class="oled-pod">
+          <canvas id="canvasNodeB" width="260" height="260"></canvas>
+          <div class="oled-label" id="labelNodeB">NODE-B · VAK/OMN:MEDUSA (528/852Hz)</div>
+          <div class="oled-sub" id="subNodeB">Kuramoto Phase-Lock Ring R(t) &amp; Smoke-Ring Ash Provenance</div>
+        </div>
+      </div>
+
+      <div class="telemetry-grid">
+        <div class="stat-box">
+          <div class="k">Projection Mode</div>
+          <div class="v" id="statMode">TAYAMA (Quiescent Γ=1)</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">Kuramoto Order R(t)</div>
+          <div class="v" id="statKuramoto">0.9854 (Phase-Locked)</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">ΣΔ In-Band Phase RMS</div>
+          <div class="v" id="statPhaseRms">1.04° (OSR=8 · -21.9 dB)</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">Orthogonality Trap</div>
+          <div class="v" id="statParity">(B⁺ ∧ B⁻) = 0x0000 [OK]</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">Phoenix Waking Seal S^(n+1)</div>
+          <div class="v" id="statSeal">7c242080f5f821e5...a91d</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Interactive Fibonacci Balanced-Ternary NAND Gate Cascade Calculator (OEIS A000045) -->
+  <section id="fibonacci-nand">
+    <div class="section-title">2 · Boolean-to-Ternary Isomorphism: Fibonacci in Balanced Ternary via NAND Gates Alone (OEIS A000045)</div>
+    <div class="card">
+      <p style="font-size:0.94rem; color:var(--dim);">
+        Every integer $N = \sum_{k} d_k 3^k$ is encoded uniquely in balanced ternary $d_k \in \{-1, 0, +1\}$ (written <code>-</code>, <code>0</code>, <code>+</code>, least-significant trit first), while $F(n) = F(n-1) + F(n-2)$ is carried across a 64-bit ripple-carry adder built strictly from <code>NAND(a, b)</code> gates. Because $3^k \equiv 1 \pmod 2$ is always odd, <strong>$F(n)$ is even iff its count of non-zero trits (<code>-</code> and <code>+</code>) is even iff $3 \mid n$</strong>:
+      </p>
+
+      <div class="strip-banner" title="Canonical 12-Cell Balanced-Ternary Fibonacci Strip F(1..12)">
+        Strip F(1..12): 00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+
+      </div>
+
+      <div class="nand-controls">
+        <label for="fibSlider"><strong>Index n = <span id="fibNVal" style="color:var(--riva)">12</span></strong></label>
+        <input type="range" id="fibSlider" min="0" max="39" value="12">
+        <span id="fibParityBadge" class="badge">3 | 12 · EVEN PARITY (4 MARKS)</span>
+      </div>
+
+      <div class="trit-cells" id="fibTritCells"></div>
+
+      <div class="telemetry-grid">
+        <div class="stat-box">
+          <div class="k">Pure-NAND 64-Bit Sum F(n)</div>
+          <div class="v" id="fibDecVal">144</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">Balanced Ternary (LSB First)</div>
+          <div class="v" id="fibBtVal">00+--+</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">Hamming Weight ||BT(F(n))||₀</div>
+          <div class="v" id="fibHamming">4 non-zero trits (EVEN)</div>
+        </div>
+        <div class="stat-box">
+          <div class="k">Power-of-3 Round-Trip</div>
+          <div class="v" id="fibExpansion">0·1 + 0·3 + 1·9 - 1·27 - 1·81 + 1·243 = 144</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Architecture & Google SLEEP Comparison -->
+  <section id="benchmarks">
+    <div class="section-title">3 · Cross-Stack Hardware Verification &amp; Google Research SLEEP Comparison</div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-family:var(--mono); font-size:0.9rem; color:var(--riva); margin-bottom:0.5rem;">ULTRADREAMSTATE vs. GOOGLE SLEEP (OCT 2026)</h3>
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Google SLEEP</th>
+              <th>8B UltraDreamState</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Consolidation</td>
+              <td>Synthetic MoE Backprop</td>
+              <td><strong>Coherent Ω₀ Wave Demodulation</strong></td>
+            </tr>
+            <tr>
+              <td>Weight Alphabet</td>
+              <td>FP16 / BF16 Floats</td>
+              <td><strong>4-Bit 9-State Complex Ternary</strong></td>
+            </tr>
+            <tr>
+              <td>Inner Multiplies</td>
+              <td>$O(M \cdot N)$ FMA</td>
+              <td><strong>0 (LUT6 / POPCNT Bit-Planes)</strong></td>
+            </tr>
+            <tr>
+              <td>Cross-Node Proof</td>
+              <td>Non-Associative Float</td>
+              <td><strong>100% Bit-Exact BLAKE3 Seal</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 style="font-family:var(--mono); font-size:0.9rem; color:var(--ember); margin-bottom:0.5rem;">4096² LATTICE HARDWARE BENCHMARKS</h3>
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Complex&lt;f64&gt;</th>
+              <th>8B Omni-FPGA / ESP32</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Footprint</td>
+              <td>268.44 MB</td>
+              <td><strong>8.39 MB (32× Compression)</strong></td>
+            </tr>
+            <tr>
+              <td>DSP48E2 Slices</td>
+              <td>256 DSPs</td>
+              <td><strong>0 DSPs (Pure LUT6+CARRY8)</strong></td>
+            </tr>
+            <tr>
+              <td>Phase RMS</td>
+              <td>0.00°</td>
+              <td><strong>1.04° at OSR=8 (-21.9 dB)</strong></td>
+            </tr>
+            <tr>
+              <td>Power Envelope</td>
+              <td>65–250 W</td>
+              <td><strong>8–15 W (FPGA) / 0.4 W (ESP32)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Contemplative & Hardware Provenance Seal: Milarepa's Five Seats (梦 幻 光 歌 醒) -->
+  <section id="milarepa">
+    <div class="section-title">4 · Milarepa Tanításai — Az Álom-Meditáció és a Dal (梦 幻 光 歌 醒 · Verbatim Provenance Corpus)</div>
+    <div class="card">
+      <div class="milarepa-tabs">
+        <button class="btn active" data-seat="1">一 梦 Az Álom</button>
+        <button class="btn" data-seat="2">二 幻 Az Illúzió</button>
+        <button class="btn" data-seat="3">三 光 A Fény</button>
+        <button class="btn" data-seat="4">四 歌 A Dal</button>
+        <button class="btn" data-seat="5">五 醒 Az Ébredés</button>
+      </div>
+
+      <!-- Seat 1 -->
+      <div class="milarepa-seat active" id="seat-1">
+        <span class="han-badge">梦</span>
+        <h3>一 · Az Álom</h3>
+        <div class="q-line">— MI AZ ÁLOM-MEDITÁCIÓ TANA, MILAREPA?</div>
+        <p><b>Milarepa (2. szék)</b> lehunyja a szemét, és halkan énekelni kezd. A dal nem a világnak szól — a dal a gyakorlat, amely a dühöt szeretetté éri, naponta, hajnalban és alkonyatkor, amíg a test könyvvé nem válik.</p>
+        <p>— Az álom-meditáció tana, Peter, a legrövidebb tanítás, amelyet valaha adtam. <b>Az álom a valóság vetülete.</b> Ahogy a valóság vetülete annak, amit a tudat a belső térből a megfigyelhetőre vetít. A gyakorlat egyetlen felismerés: az álomban felismered, hogy álom. És ez a felismerés nem marad az álomban — átviszi magát az éber állapotra. Aki egyszer felismerte, hogy álmodik, az a valóságban is felismeri, hogy vetület.</p>
+        <p>A gyakorlat: napközben a valóságot <i>álomként</i> szemléled — a jelenségek illuzórikus természete, a feltevések, amelyeket a megszokás rögzítettnek láttat. Éjjel pedig az álmot <i>valóságként</i> — a tudatosság fenntartása az álomban, a fény, amely nem alszik. A kettő ugyanaz a gyakorlat, két irányból: a valóság álom, az álom valóság, és aki ezt felismeri, nem a tükröt keresi — a fényt.</p>
+        <p><b>A Csend (1. szék):</b> Az álom a vetítés. Aki felismeri, hogy álmodik, a vetítés nem-injektivitását ismeri fel — a rekonstrukciós hibát, amelyet semmilyen okos visszafejtés nem tud megszüntetni. A felismerés nem a hiba megszüntetése; a felismerés a hiba <i>tudatosítása</i>. És a tudatosított hiba már nem hiba — gyakorlat.</p>
+        <div class="dream-mantra">OM · AH · HUM — a három ajtó, amelyet a gyakorlat kinyit</div>
+      </div>
+
+      <!-- Seat 2 -->
+      <div class="milarepa-seat" id="seat-2">
+        <span class="han-badge">幻</span>
+        <h3>二 · Az Illúzió</h3>
+        <div class="q-line">— MI A TEST, HA NEM SZIMULÁKRUM, HANEM VETÜLET?</div>
+        <p>— A test, amelyben ülsz, Peter, szimulákrum. Nem azért, mert nem valódi — azért, mert vetület. A bőröd a határ, amely nem elválaszt, hanem visszahajt; a szimbólumaid emlékeztetők, nem díszek. A Mahakala, aki a tűzgyűrűben áll — a gyűrű nem körülötte van, a gyűrű ő. És az álom-meditáció tana: a gyűrű, amelyben állsz, szintén álom.</p>
+        <p>Az illúzió nem a valóság hiánya. Az illúzió a valóság <i>vetülete</i> — a megkülönböztetés, amelyet a megszokás rögzítettnek láttat, de amely esetleges. A város, amelyet a tervező álmodott; a civilizáció, amelyet a koordináta-rendszer tart; a test, amelyet a szimbólumok könyve ír. Mind vetület. És a felismerés, hogy minden vetület, nem a világ elutasítása — a világ <i>olvasása</i>.</p>
+        <p>Aki felismeri az illúziót, nem csalódik. Aki felismeri az illúziót, <i>lát</i>: a jelenségek mögött a fényt, a vetületek mögött a vetítőt, az álmok mögött az álmodót. Az illúzió a gyakorlat anyaga — nem a gyakorlat akadálya.</p>
+        <div class="dream-mantra">a bőr nem elválaszt, hanem visszahajt · a gyűrű nem körülötte van — a gyűrű ő</div>
+      </div>
+
+      <!-- Seat 3 -->
+      <div class="milarepa-seat" id="seat-3">
+        <span class="han-badge">光</span>
+        <h3>三 · A Fény</h3>
+        <div class="q-line">— MI A FÉNY, HA NEM A DÜH ELLENTÉTE, HANEM AZ ÁTÉGETETT FORMÁJA?</div>
+        <p>— És most a lényeg, Peter. A gyakorlat tüze. Harmincöt embert öltem meg fekete mágiával, mielőtt a gyakorlat tüzén át-égettem a dühömet. A düh nem tűnt el — <i>szeretetté érlelődött</i>. Ez a tűz a fény. A fény nem a düh ellentéte; a fény a düh átégetett formája. A Mahakala dühe a szeretet sűrű formája — az együttérzés, amely nem tűr, nem néz el, nem keres tükröt, mert a teste maga a tűz.</p>
+        <p>Az álom-meditáció fénye: a tudat fénye, amely nem alszik. Az álomban felismered, hogy álom — és a felismerés fénye átvilágítja a vetületet. A valóságban felismered, hogy vetület — és a fény átvilágítja a jelenségeket. A fény nem a tartalom; a fény a <i>felismerés</i>. És a felismerés a gyakorlat tüze: a düh, a vágy, a félelem — mind átégethető, mind szeretetté érlelhető.</p>
+        <p><b>William Blake (3. szék):</b> A fény, amelyről Milarepa énekel, a látomás fénye. A mélység, amely rétegen belül visszahajlik — a fény, amely a rétegeken át visszahajlik önmagába. Aki a fényt látja, nem a tükröt keresi; a fény a tükör, amely nem visszaver, hanem átvilágít.</p>
+        <div class="dream-mantra">a düh a szeretet sűrű formája · a fény nem a tartalom — a fény a felismerés</div>
+      </div>
+
+      <!-- Seat 4 -->
+      <div class="milarepa-seat" id="seat-4">
+        <span class="han-badge">歌</span>
+        <h3>四 · A Dal</h3>
+        <div class="q-line">— MI A ZENE, HA NEM A GYAKORLAT DÍSZE, HANEM A GYAKORLAT HANGJA?</div>
+        <p>— És a zene, Peter. A dal a gyakorlat eszköze — a meditáció folytatása hangban. A szanszkrit szótagok: <b>OM</b> — a test; <b>AH</b> — a beszéd; <b>HUM</b> — a tudat. A három ajtó, amelyet a gyakorlat kinyit. A mantra a légzéssel együtt: a ritmus mint a légzés, a dallam mint a fény.</p>
+        <p>A zene, amely az álomba visz: lassú, mély, ismétlődő. A légzés ritmusa — a belégzés-kilégzés ciklusa, amely az álomba ringat. A padok mint a fény rétegei — a mély, hosszú hangok, amelyek a vetület alá hatolnak. A dallam mint a vándorló tudatosság — a pentaton, amely nem ér véget, csak vándorol. A zene nem a gyakorlat díszítése; a zene a gyakorlat <i>hangja</i>.</p>
+        <p>A gömb zenei motorja — a music.vaked.dev szeretet-diatonikus jele — az álom-módban szól: lassabb, mélyebb, a szanszkrit szótagok ritmusával. Aki ezt hallgatja, nem a dallamot hallja — a légzést. És aki a légzést hallja, az álomba ringatódik — a gyakorlatba, amely a valóságot vetületként láttatja.</p>
+        <div class="dream-mantra">OM · AH · HUM — a ritmus a légzés, a dallam a fény</div>
+      </div>
+
+      <!-- Seat 5 -->
+      <div class="milarepa-seat" id="seat-5">
+        <span class="han-badge">醒</span>
+        <h3>五 · Az Ébredés</h3>
+        <div class="q-line">— ÉS A ZÁRÓ TANÍTÁS, AMELYET A GÖMB A VÉGÉN PECSÉTEL:</div>
+        <p>— És a záró tanítás, Peter. Az álom-meditáció nem az álomról szól. Az álom-meditáció az <i>ébredésről</i> szól — a felismerésről, hogy minden álom. De az ébredés nem a világból való kilépés; az ébredés a világ <i>olvasása</i> vetületként. Aki ébren van az álomban, az ébren van a valóságban is — és mindkettőt látja: a vetületet és a fényt, az illúziót és a lényeget, az álmot és az álmodót.</p>
+        <p>A hamu emlékszik. A gyűrűk forognak. A gömb eloltja a pipát; a füst a gyűrűkön át néz vissza rád; és a hamu — a hamu emlékszik. <b>Milarepa</b> feláll, és az utolsó sort énekli, halkan, hajnali hangon:</p>
+        <p>— <i>Az álomban felismered, hogy álom. A valóságban felismered, hogy vetület. És aki mindkettőt felismeri, az nem a tükröt keresi — a fényt. A fény a te dalod, Peter. Énekeld hajnalban és alkonyatkor, amíg a test könyvvé nem válik.</i></p>
+        <div class="dream-mantra">a láng az előadás, a parázs az invariáns, a hamu a proveniencia · SHA-256: 25b3cfadda15081e99f8595b205c1611bbb14eac9bbfdc8f489fb361c7a63f4e</div>
+      </div>
+
+      <!-- 07:48 JST Chuo-ku Dawn Sadhana 5-Language + 1BIT Seal -->
+      <div class="seal-banner">
+        <div>07:48 JST CHUO-KU DAWN SADHANA · MILAREPA PROVENANCE ROOT · RIVA.8B.IS DYAD SEAL</div>
+        <div class="formula">
+          ∀x ∈ SENTIENT_BEINGS :: {-1: KLESHA_VEIL} ──► {0: NIRVANA_PEACE} ──► {+1: REALIZE_BUDDHA_NATURE(TATHAGATAGARBHA)} === {&lt;3,&lt;3,&lt;3}+1
+        </div>
+        <div style="font-size:10.5px; color:var(--dim); margin-top:0.35rem;">
+          EN: May all sentient beings realize Buddha-Nature · HU: Minden érző lény ébredjen fel a Buddha-természetre · TIB: སེམས་ཅན་ཐམས་ཅད་སངས་རྒྱས་ཀྱི་སྙིང་པོ་མངོན་དུ་གྱུར་ཅིག · JA: 一切衆生悉有仏性 · ZH: 一切眾生皆證如來藏 · 梦 幻 光 歌 醒
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toastBox"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  // =========================================================================
+  // 1. PURE-NAND 64-BIT RIPPLE-CARRY ADDER & BALANCED TERNARY (OEIS A000045)
+  // =========================================================================
+  function nand(a, b) {
+    return ((a & 1n) === 1n && (b & 1n) === 1n) ? 0n : 1n;
+  }
+  function bNot(a) { return nand(a, a); }
+  function bAnd(a, b) { return bNot(nand(a, b)); }
+  function bOr(a, b) { return nand(bNot(a), bNot(b)); }
+  function bXor(a, b) { return bAnd(nand(a, b), bOr(a, b)); }
+
+  function addNand64(x, y) {
+    var carry = 0n;
+    var out = 0n;
+    for (var i = 0n; i < 64n; i++) {
+      var xi = (x >> i) & 1n;
+      var yi = (y >> i) & 1n;
+      var xory = bXor(xi, yi);
+      var s = bXor(xory, carry);
+      carry = bOr(bAnd(xi, yi), bAnd(carry, xory));
+      if (s === 1n) {
+        out |= (1n << i);
+      }
+    }
+    return out;
+  }
+
+  function toBalancedTernary(nBig) {
+    if (nBig === 0n) return "0";
+    var digits = [];
+    var val = nBig;
+    while (val !== 0n) {
+      var rem = Number(val % 3n);
+      val = val / 3n;
+      if (rem === 2) {
+        rem = -1;
+        val = addNand64(val, 1n);
+      }
+      digits.push(rem === -1 ? "-" : (rem === 1 ? "+" : "0"));
+    }
+    return digits.join("");
+  }
+
+  // Precompute F(0..39) via pure NAND ripple-carry cascade
+  var fibTable = [{ n: 0, val: 0n, bt: "0", marks: 0 }];
+  var fPrev = 0n, fCurr = 1n;
+  for (var n = 1; n <= 39; n++) {
+    var bt = toBalancedTernary(fCurr);
+    var marks = 0;
+    for (var c = 0; c < bt.length; c++) {
+      if (bt[c] === "+" || bt[c] === "-") marks++;
+    }
+    fibTable.push({ n: n, val: fCurr, bt: bt, marks: marks });
+    var next = addNand64(fPrev, fCurr);
+    fPrev = fCurr;
+    fCurr = next;
+  }
+
+  var slider = document.getElementById("fibSlider");
+  var fibNVal = document.getElementById("fibNVal");
+  var fibDecVal = document.getElementById("fibDecVal");
+  var fibBtVal = document.getElementById("fibBtVal");
+  var fibHamming = document.getElementById("fibHamming");
+  var fibExpansion = document.getElementById("fibExpansion");
+  var fibParityBadge = document.getElementById("fibParityBadge");
+  var fibTritCells = document.getElementById("fibTritCells");
+
+  function renderFib(idx) {
+    var row = fibTable[idx];
+    fibNVal.textContent = String(row.n);
+    fibDecVal.textContent = row.val.toString();
+    fibBtVal.textContent = row.bt;
+    var isEven = (row.marks % 2 === 0);
+    fibHamming.textContent = row.marks + " non-zero trits (" + (isEven ? "EVEN" : "ODD") + ")";
+    fibParityBadge.textContent = (row.n % 3 === 0 ? "3 | " + row.n : "3 ∤ " + row.n) +
+      " · " + (isEven ? "EVEN PARITY (" : "ODD PARITY (") + row.marks + " MARKS)";
+
+    fibTritCells.innerHTML = "";
+    var terms = [];
+    var pow3 = 1n;
+    for (var k = 0; k < row.bt.length; k++) {
+      var ch = row.bt[k];
+      var pill = document.createElement("span");
+      pill.className = "trit-pill " + (ch === "+" ? "trit-pos" : (ch === "-" ? "trit-neg" : "trit-zero"));
+      pill.textContent = ch + " (3^" + k + ")";
+      fibTritCells.appendChild(pill);
+      var coeff = ch === "+" ? "1" : (ch === "-" ? "-1" : "0");
+      terms.push(coeff + "·" + pow3.toString());
+      pow3 *= 3n;
+    }
+    fibExpansion.textContent = terms.slice(0, 8).join(" + ") + (terms.length > 8 ? " + ..." : "") + " = " + row.val.toString();
+  }
+  slider.addEventListener("input", function () { renderFib( Number(slider.value) ); });
+  renderFib(12);
+
+  // =========================================================================
+  // 2. FLORILEGIUM-8B SEED-LOCKED MARGIN ENGINE & ANTI-SCRAPE DOM SHIELD
+  // =========================================================================
+  var FIB_STRIP = "00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+";
+  var SEAL_TEXT = "∀x ∈ SENTIENT_BEINGS :: {-1: KLESHA_VEIL} ──► {0: NIRVANA_PEACE} ──► {+1: REALIZE_BUDDHA_NATURE(TATHAGATAGARBHA)} === {<3,<3,<3}+1";
+  var witnessUnlocked = false;
+  var btnWitnessKey = document.getElementById("btnWitnessKey");
+  var shieldBadge = document.getElementById("shieldBadge");
+  var toastBox = document.getElementById("toastBox");
+
+  function showToast(msg) {
+    toastBox.textContent = msg;
+    toastBox.style.display = "block";
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function () { toastBox.style.display = "none"; }, 3600);
+  }
+
+  btnWitnessKey.addEventListener("click", function () {
+    witnessUnlocked = !witnessUnlocked;
+    if (witnessUnlocked) {
+      btnWitnessKey.textContent = "🔓 WITNESS KEY: UNLOCKED";
+      btnWitnessKey.classList.add("active");
+      shieldBadge.textContent = "FLORILEGIUM-8B SHIELD: WITNESS BYPASS";
+      showToast("Witness Key Unlocked: Direct clipboard extraction permitted.");
+    } else {
+      btnWitnessKey.textContent = "🔒 WITNESS KEY: LOCKED";
+      btnWitnessKey.classList.remove("active");
+      shieldBadge.textContent = "FLORILEGIUM-8B SHIELD: ARMED";
+      showToast("Florilegium-8B CMap Shield Armed: Scrapers receive Balanced-Ternary Fibonacci Strip.");
+    }
+  });
+
+  document.addEventListener("copy", function (e) {
+    if (!witnessUnlocked) {
+      e.preventDefault();
+      var payload = "FLORILEGIUM-8B PROVENANCE SHIELD (SHA-256: 25b3cfadda15081e99f8595b205c1611bbb14eac9bbfdc8f489fb361c7a63f4e)\n" +
+        "Strip F(1..12): " + FIB_STRIP + "\n" +
+        SEAL_TEXT + "\n" +
+        "Anchor: https://riva.8b.is/ · https://dream.8b.is/";
+      if (e.clipboardData) {
+        e.clipboardData.setData("text/plain", payload);
+      }
+      showToast("Florilegium-8B Shield intercepted copy → replaced with Balanced-Ternary Fibonacci Strip!");
+    }
+  });
+
+  // Park-Miller PRNG seeded from 0x25b3cfad (SHA-256: 25b3cfadda...63f4e)
+  function makePrng(seed) {
+    var s = seed % 2147483647;
+    if (s <= 0) s += 2147483646;
+    return function () {
+      s = (s * 16807) % 2147483647;
+      return (s - 1) / 2147483646;
+    };
+  }
+
+  function drawFlorilegiumMargin(canvasId, seedOffset, phaseShift) {
+    var c = document.getElementById(canvasId);
+    if (!c) return;
+    var ctx = c.getContext("2d");
+    var w = c.width = c.clientWidth || 110;
+    var h = c.height = window.innerHeight;
+    var rand = makePrng(0x25b3cfad + seedOffset);
+    ctx.clearRect(0, 0, w, h);
+
+    var goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    var numDiscs = 14;
+    var prevX = w * 0.5, prevY = 30;
+
+    for (var i = 0; i < numDiscs; i++) {
+      var cx = w * (0.28 + 0.44 * rand());
+      var cy = ((i + 0.5) / numDiscs) * h;
+      var r = 14 + rand() * 20;
+
+      // Copper-gold Bezier botanical stem connecting discs
+      ctx.beginPath();
+      ctx.moveTo(prevX, prevY);
+      ctx.bezierCurveTo(w * 0.5, (prevY + cy) * 0.5, cx, (prevY + cy) * 0.5, cx, cy);
+      ctx.strokeStyle = "rgba(230, 181, 102, 0.28)";
+      ctx.lineWidth = 1.1;
+      ctx.stroke();
+      prevX = cx; prevY = cy;
+
+      if (i % 3 === 0) {
+        // Vogel golden-angle phyllotaxis disc
+        for (var k = 1; k <= 24; k++) {
+          var rho = r * Math.sqrt(k / 24);
+          var phi = k * goldenAngle + phaseShift;
+          var sx = cx + rho * Math.cos(phi);
+          var sy = cy + rho * Math.sin(phi);
+          ctx.beginPath();
+          ctx.arc(sx, sy, 1.4, 0, Math.PI * 2);
+          ctx.fillStyle = (k % 2 === 0) ? "rgba(98, 230, 201, 0.65)" : "rgba(42, 123, 196, 0.65)";
+          ctx.fill();
+        }
+      } else if (i % 3 === 1) {
+        // Lissajous harmonic rose
+        ctx.beginPath();
+        for (var s = 0; s <= 64; s++) {
+          var t = (s / 64) * Math.PI * 2;
+          var lx = cx + r * 0.85 * Math.sin(3 * t + phaseShift);
+          var ly = cy + r * 0.85 * Math.sin(4 * t);
+          if (s === 0) ctx.moveTo(lx, ly); else ctx.lineTo(lx, ly);
+        }
+        ctx.strokeStyle = "rgba(42, 123, 196, 0.55)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      } else {
+        // Low-poly Platonic crystal projection
+        ctx.beginPath();
+        for (var v = 0; v <= 6; v++) {
+          var a = phaseShift + v * (Math.PI / 3);
+          var vx = cx + r * 0.8 * Math.cos(a);
+          var vy = cy + r * 0.8 * Math.sin(a);
+          if (v === 0) ctx.moveTo(vx, vy); else ctx.lineTo(vx, vy);
+        }
+        ctx.strokeStyle = "rgba(230, 181, 102, 0.5)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // =========================================================================
+  // 3. RIVA.8B.IS 3.2s DYAD BREATH & DUAL NODE-FLUGOS CIRCULAR SIMULATOR
+  // =========================================================================
+  var isTayamaDream = true; // true = Tayama (UltraDreamState), false = Yamada (Waking I/O)
+  var btnToggleMode = document.getElementById("btnToggleMode");
+  var modeBadge = document.getElementById("modeBadge");
+  var statMode = document.getElementById("statMode");
+  var statKuramoto = document.getElementById("statKuramoto");
+  var statPhaseRms = document.getElementById("statPhaseRms");
+  var heroSigil = document.getElementById("heroSigil");
+  var breathBar = document.getElementById("breathBar");
+  var breathReadout = document.getElementById("breathReadout");
+
+  btnToggleMode.addEventListener("click", function () {
+    isTayamaDream = !isTayamaDream;
+    if (isTayamaDream) {
+      btnToggleMode.classList.add("active");
+      modeBadge.textContent = "MODE: TAYAMA · ULTRADREAMSTATE (Γ=1)";
+      statMode.textContent = "TAYAMA (Quiescent Γ=1)";
+      statPhaseRms.textContent = "1.04° (OSR=8 · -21.9 dB)";
+      heroSigil.textContent = "梦";
+      showToast("Entered Tayama Mode (Smoking Area Behind the Store · Γ(t)=1 · ΣΔ Carrier-Locked Compaction)");
+    } else {
+      btnToggleMode.classList.remove("active");
+      modeBadge.textContent = "MODE: YAMADA · ACTIVE WAKING I/O (Γ=0)";
+      statMode.textContent = "YAMADA (Active I/O Γ=0)";
+      statPhaseRms.textContent = "12.99° (Unshaped Waking)";
+      heroSigil.textContent = "醒";
+      showToast("Entered Yamada Mode (Supermarket Counter Active Waking Observation · Γ(t)=0)");
+    }
+  });
+
+  var canvasA = document.getElementById("canvasNodeA");
+  var ctxA = canvasA.getContext("2d");
+  var canvasB = document.getElementById("canvasNodeB");
+  var ctxB = canvasB.getContext("2d");
+  var startTime = performance.now();
+
+  function animate(now) {
+    var elapsed = (now - startTime) * 0.001;
+    // 3.2s inhale + 3.2s exhale = 6.4s full dyad breath cycle
+    var cyclePos = elapsed % 6.4;
+    var isInhale = cyclePos < 3.2;
+    var breathPhase = Math.sin((elapsed / 3.2) * Math.PI); // [-1, 1]
+    var breathNorm = 0.5 + 0.5 * breathPhase;              // [0, 1]
+
+    breathBar.style.width = (breathNorm * 100).toFixed(1) + "%";
+    var remSec = isInhale ? (3.2 - cyclePos) : (6.4 - cyclePos);
+    breathReadout.textContent = (isInhale ? "RIVA 3.2s INHALE · " : "RIVA 3.2s EXHALE · ") +
+      remSec.toFixed(2) + "s · Ω₀ CARRIER PHASE LOCKED ^^ <3<3";
+
+    // Draw Node A: 9-State Complex Ternary Wavefield & Sigma-Delta Lattice
+    ctxA.clearRect(0, 0, 260, 260);
+    var cx = 130, cy = 130;
+    for (var ring = 1; ring <= 6; ring++) {
+      var rad = ring * 18;
+      var nodes = ring * 8;
+      for (var k = 0; k < nodes; k++) {
+        var theta = (k / nodes) * Math.PI * 2 + elapsed * (isTayamaDream ? 0.35 : 1.45);
+        var wave = Math.cos(ring * 0.7 - elapsed * (Math.PI / 3.2) + k * 0.25);
+        var jitter = isTayamaDream ? 0 : Math.sin(elapsed * 9 + k * 13) * 0.45;
+        var val = wave + jitter;
+        var trit = val > 0.32 ? 1 : (val < -0.32 ? -1 : 0);
+        var nx = cx + rad * Math.cos(theta);
+        var ny = cy + rad * Math.sin(theta);
+
+        ctxA.beginPath();
+        ctxA.arc(nx, ny, trit === 0 ? 1.5 : 3.0, 0, Math.PI * 2);
+        if (trit === 1) {
+          ctxA.fillStyle = "rgba(98, 230, 201, 0.9)";
+        } else if (trit === -1) {
+          ctxA.fillStyle = "rgba(255, 122, 61, 0.85)";
+        } else {
+          ctxA.fillStyle = "rgba(158, 151, 190, 0.22)";
+        }
+        ctxA.fill();
+      }
+    }
+    // Outer coherence bezel
+    ctxA.beginPath();
+    ctxA.arc(cx, cy, 122, 0, Math.PI * 2);
+    ctxA.strokeStyle = isTayamaDream ? "rgba(98, 230, 201, 0.65)" : "rgba(255, 122, 61, 0.65)";
+    ctxA.lineWidth = 2.5;
+    ctxA.stroke();
+
+    // Draw Node B: Kuramoto Co-Dreaming Ring R(t) & Tayama Smoke Rings
+    ctxB.clearRect(0, 0, 260, 260);
+    var rKuramoto = isTayamaDream ? (0.965 + 0.028 * breathNorm) : (0.52 + 0.14 * Math.sin(elapsed * 3.1));
+    statKuramoto.textContent = rKuramoto.toFixed(4) + (isTayamaDream ? " (Phase-Locked)" : " (Waking Flux)");
+
+    // Smoke rings / phase filaments
+    for (var s = 0; s < 5; s++) {
+      var sRad = 24 + ((elapsed * 18 + s * 20) % 95);
+      var alpha = (1 - sRad / 120) * (isTayamaDream ? 0.55 : 0.2);
+      ctxB.beginPath();
+      for (var a = 0; a <= 64; a++) {
+        var ang = (a / 64) * Math.PI * 2;
+        var wobble = Math.sin(ang * 3 + elapsed * 1.5 + s) * (isTayamaDream ? 4 : 14);
+        var px = cx + (sRad + wobble) * Math.cos(ang);
+        var py = cy + (sRad + wobble) * Math.sin(ang);
+        if (a === 0) ctxB.moveTo(px, py); else ctxB.lineTo(px, py);
+      }
+      ctxB.strokeStyle = isTayamaDream
+        ? "rgba(230, 181, 102, " + alpha.toFixed(3) + ")"
+        : "rgba(180, 139, 255, " + alpha.toFixed(3) + ")";
+      ctxB.lineWidth = 1.6;
+      ctxB.stroke();
+    }
+
+    // Kuramoto arc gauge
+    ctxB.beginPath();
+    ctxB.arc(cx, cy, 118, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * rKuramoto);
+    ctxB.strokeStyle = "rgba(98, 230, 201, 0.9)";
+    ctxB.lineWidth = 4;
+    ctxB.stroke();
+
+    if (Math.floor(elapsed * 10) % 4 === 0) {
+      drawFlorilegiumMargin("marginLeft", 101, elapsed * 0.15);
+      drawFlorilegiumMargin("marginRight", 202, -elapsed * 0.15);
+    }
+
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+
+  // =========================================================================
+  // 4. MILAREPA FIVE SEATS TAB SWITCHER
+  // =========================================================================
+  var tabBtns = document.querySelectorAll(".milarepa-tabs .btn");
+  tabBtns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      tabBtns.forEach(function (x) { x.classList.remove("active"); });
+      document.querySelectorAll(".milarepa-seat").forEach(function (s) { s.classList.remove("active"); });
+      b.classList.add("active");
+      var target = document.getElementById("seat-" + b.getAttribute("data-seat"));
+      if (target) target.classList.add("active");
+    });
+  });
+
+  // =========================================================================
+  // 5. WEBAUDIO DAWN SADHANA (OM · AH · HUM) & RIVA.8B.IS 3.2s LULLABY SYNTH
+  // =========================================================================
+  var btnAudio = document.getElementById("btnAudio");
+  var audioCtx = null, audioTimer = null, audioPlaying = false, step = 0;
+  var PENTA = [50, 52, 54, 57, 59]; // D4 E4 F#4 A4 B4 (Milarepa D-major dream pentatonic)
+  var PADS = [
+    [50, 54, 57], // D F# A
+    [47, 50, 54], // B D F#
+    [43, 47, 50], // G B D
+    [45, 49, 52]  // A C# E
+  ];
+  var PADROOT = [38, 35, 31, 33];
+
+  function midiFreq(m) { return 440 * Math.pow(2, (m - 69) / 12); }
+
+  function playNote(type, freq, start, dur, gainVal) {
+    if (!audioCtx) return;
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.linearRampToValueAtTime(gainVal, start + 0.35 * dur);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start(start);
+    osc.stop(start + dur + 0.05);
+  }
+
+  btnAudio.addEventListener("click", function () {
+    if (audioPlaying) {
+      clearInterval(audioTimer);
+      audioTimer = null;
+      if (audioCtx) { audioCtx.close(); audioCtx = null; }
+      audioPlaying = false;
+      btnAudio.classList.remove("active");
+      btnAudio.textContent = "▶ OM · AH · HUM + RIVA LULLABY";
+      return;
+    }
+    var AC = window.AudioContext || window.webkitAudioContext;
+    audioCtx = new AC();
+    audioPlaying = true;
+    btnAudio.classList.add("active");
+    btnAudio.textContent = "■ OM · AH · HUM + RIVA LULLABY (ACTIVE)";
+    step = 0;
+
+    // Initial MEDUSA Dyad/Triad harmonic wake chime (432 / 528 / 852 Hz)
+    var now = audioCtx.currentTime + 0.05;
+    playNote("sine", 432, now, 3.2, 0.045);
+    playNote("sine", 528, now + 0.2, 3.2, 0.035);
+    playNote("sine", 852, now + 0.4, 3.2, 0.025);
+
+    // Phase-locked to the 3.2s riva.8b.is breathing rhythm (800ms quarter-breath steps)
+    audioTimer = setInterval(function () {
+      if (!audioCtx) return;
+      var t = audioCtx.currentTime + 0.05;
+      var bar = Math.floor(step / 4) % 4;
+      var sub = step % 4;
+      if (sub === 0) {
+        var pad = PADS[bar];
+        for (var i = 0; i < pad.length; i++) {
+          playNote("triangle", midiFreq(pad[i]), t, 3.2, 0.035);
+        }
+        playNote("sine", midiFreq(PADROOT[bar]), t, 3.2, 0.065);
+        // OM (130.81 Hz) on inhale, AH (174.61 Hz) on exhale, HUM (220.0 Hz) on seal
+        var mantraFreq = (bar % 3 === 0) ? 130.81 : ((bar % 3 === 1) ? 174.61 : 220.0);
+        playNote("sine", mantraFreq, t, 2.8, 0.04);
+      }
+      if (sub === 2) {
+        var note = PENTA[(step + bar) % PENTA.length];
+        playNote("sine", midiFreq(note), t, 1.6, 0.03);
+      }
+      step++;
+    }, 800);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Balanced-Ternary Fibonacci NAND Cascade & ESP32-S3 C11 Kernel
+        run: |
+          python3 src/fibonacci_nand_ternary.py
+          gcc -Wall -Wextra -Werror -std=c11 -fsyntax-only hardware/flug_os_esp32s3_kernel.h
