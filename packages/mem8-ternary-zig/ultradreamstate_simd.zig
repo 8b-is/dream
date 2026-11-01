@@ -96,11 +96,10 @@ pub fn packRowSigmaDelta(
 
             // Zero-Leakage Sparsity Gate: M_{m,n} = I(|z| > 0)
             const is_active = (u != 0.0) or (v != 0.0);
+            const fb_r = h_r * err_r - h_i * err_i;
+            const fb_i = h_r * err_i + h_i * err_r;
 
             if (is_active) {
-                const fb_r = h_r * err_r - h_i * err_i;
-                const fb_i = h_r * err_i + h_i * err_r;
-
                 const u_tilde = u + fb_r;
                 const v_tilde = v + fb_i;
 
@@ -126,6 +125,10 @@ pub fn packRowSigmaDelta(
 
                 err_r = math.clamp(u_tilde - gamma * q_r, -delta, delta);
                 err_i = math.clamp(v_tilde - gamma * q_i, -delta, delta);
+            } else {
+                // Advance carrier phase across sparse gaps (Eq. 15)
+                err_r = fb_r;
+                err_i = fb_i;
             }
         }
 
@@ -223,33 +226,30 @@ pub fn packMatrixIntoTiles4x64(
     }
 }
 
-/// Evaluates 4 rows x 64 columns (256 complex ternary nodes) in a single SIMD pass.
+/// Evaluates 4 rows x 64 columns (256 complex ternary nodes) in a single 32-bit safe SIMD pass
+/// with active Hardware Invariant 1 parity interlock (UltraDreamState v2.0).
 pub inline fn stepTile4x64(
     tile: ComplexTernaryTile4x64,
     x_r_pos: Vec4u64,
     x_r_neg: Vec4u64,
     x_i_pos: Vec4u64,
     x_i_neg: Vec4u64,
-    re_pos_acc: *Vec4u16,
-    re_neg_acc: *Vec4u16,
-    im_pos_acc: *Vec4u16,
-    im_neg_acc: *Vec4u16,
-) void {
-    const rr_pos: Vec4u16 = @intCast(@popCount((tile.r_pos & x_r_pos) | (tile.r_neg & x_r_neg)));
-    const ii_neg: Vec4u16 = @intCast(@popCount((tile.i_pos & x_i_neg) | (tile.i_neg & x_i_pos)));
-    const rr_neg: Vec4u16 = @intCast(@popCount((tile.r_pos & x_r_neg) | (tile.r_neg & x_r_pos)));
-    const ii_pos: Vec4u16 = @intCast(@popCount((tile.i_pos & x_i_pos) | (tile.i_neg & x_i_neg)));
+    re_acc: *Vec4i32,
+    im_acc: *Vec4i32,
+) bool {
+    if (!tile.isValid()) return false;
+    const rr_pos: Vec4i32 = @as(Vec4i32, @popCount((tile.r_pos & x_r_pos) | (tile.r_neg & x_r_neg)));
+    const ii_neg: Vec4i32 = @as(Vec4i32, @popCount((tile.i_pos & x_i_neg) | (tile.i_neg & x_i_pos)));
+    const rr_neg: Vec4i32 = @as(Vec4i32, @popCount((tile.r_pos & x_r_neg) | (tile.r_neg & x_r_pos)));
+    const ii_pos: Vec4i32 = @as(Vec4i32, @popCount((tile.i_pos & x_i_pos) | (tile.i_neg & x_i_neg)));
+    re_acc.* += (rr_pos + ii_neg) - (rr_neg + ii_pos);
 
-    re_pos_acc.* += rr_pos + ii_neg;
-    re_neg_acc.* += rr_neg + ii_pos;
-
-    const ri_pos: Vec4u16 = @intCast(@popCount((tile.r_pos & x_i_pos) | (tile.r_neg & x_i_neg)));
-    const ir_pos: Vec4u16 = @intCast(@popCount((tile.i_pos & x_r_pos) | (tile.i_neg & x_r_neg)));
-    const ri_neg: Vec4u16 = @intCast(@popCount((tile.r_pos & x_i_neg) | (tile.r_neg & x_i_pos)));
-    const ir_neg: Vec4u16 = @intCast(@popCount((tile.i_pos & x_r_neg) | (tile.i_neg & x_r_pos)));
-
-    im_pos_acc.* += ri_pos + ir_pos;
-    im_neg_acc.* += ri_neg + ir_neg;
+    const ri_pos: Vec4i32 = @as(Vec4i32, @popCount((tile.r_pos & x_i_pos) | (tile.r_neg & x_i_neg)));
+    const ir_pos: Vec4i32 = @as(Vec4i32, @popCount((tile.i_pos & x_r_pos) | (tile.i_neg & x_r_neg)));
+    const ri_neg: Vec4i32 = @as(Vec4i32, @popCount((tile.r_pos & x_i_neg) | (tile.r_neg & x_i_pos)));
+    const ir_neg: Vec4i32 = @as(Vec4i32, @popCount((tile.i_pos & x_r_neg) | (tile.i_neg & x_r_pos)));
+    im_acc.* += (ri_pos + ir_pos) - (ri_neg + ir_neg);
+    return true;
 }
 
 /// Vectorized 4-Row Batch Matrix-Vector Contraction: y = \gamma * W * x
@@ -263,7 +263,6 @@ pub fn contractMatrixVectorSIMD4(
     gamma: f32,
 ) void {
     std.debug.assert(rows % 4 == 0);
-    std.debug.assert(words_per_row <= 512);
     std.debug.assert(tiles.len == (rows / 4) * words_per_row);
     std.debug.assert(x_words.len == words_per_row);
     std.debug.assert(out_re.len == rows and out_im.len == rows);
@@ -274,10 +273,8 @@ pub fn contractMatrixVectorSIMD4(
     for (0..num_row_blocks) |rb| {
         const tile_row = tiles[rb * words_per_row .. (rb + 1) * words_per_row];
 
-        var re_pos_acc: Vec4u16 = @splat(0);
-        var re_neg_acc: Vec4u16 = @splat(0);
-        var im_pos_acc: Vec4u16 = @splat(0);
-        var im_neg_acc: Vec4u16 = @splat(0);
+        var net_re: Vec4i32 = @splat(0);
+        var net_im: Vec4i32 = @splat(0);
 
         for (tile_row, x_words) |tile, x_w| {
             const x_r_pos: Vec4u64 = @splat(x_w.r_pos);
@@ -285,21 +282,17 @@ pub fn contractMatrixVectorSIMD4(
             const x_i_pos: Vec4u64 = @splat(x_w.i_pos);
             const x_i_neg: Vec4u64 = @splat(x_w.i_neg);
 
-            stepTile4x64(
+            const ok = stepTile4x64(
                 tile,
                 x_r_pos,
                 x_r_neg,
                 x_i_pos,
                 x_i_neg,
-                &re_pos_acc,
-                &re_neg_acc,
-                &im_pos_acc,
-                &im_neg_acc,
+                &net_re,
+                &net_im,
             );
+            std.debug.assert(ok);
         }
-
-        const net_re: Vec4i32 = @as(Vec4i32, @intCast(re_pos_acc)) - @as(Vec4i32, @intCast(re_neg_acc));
-        const net_im: Vec4i32 = @as(Vec4i32, @intCast(im_pos_acc)) - @as(Vec4i32, @intCast(im_neg_acc));
 
         const scaled_re: Vec4f32 = @as(Vec4f32, @floatFromInt(net_re)) * gamma_vec;
         const scaled_im: Vec4f32 = @as(Vec4f32, @floatFromInt(net_im)) * gamma_vec;
