@@ -579,7 +579,7 @@ Simultaneously, the recurrence $F(n) = F(n-1) + F(n-2)$ is executed across a 64-
 \end{align}
 Evaluating $F(1 \dots 12)$ through the pure \texttt{NAND} cascade and projecting onto balanced ternary yields the canonical 12-cell invariant strip:
 \begin{center}
-\texttt{00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+}
+\texttt{+00 +00 -+0 0+0 --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+}
 \end{center}
 
 \begin{lemma}[Visible Parity Congruence in Balanced Ternary]
@@ -610,7 +610,7 @@ In standard \texttt{florilegium}, Lua scripts running inside LuaLaTeX (\texttt{i
     \end{equation}
     The radii and angular coordinates $(r_k, \theta_k)$ of the greedy free-space discs filled by \texttt{grow.lua} under \texttt{theme=math} and \texttt{theme=geometric} form a geometric visual watermark that uniquely proves authorship in a single $300\text{ dpi}$ optical scan.
     \item \textbf{Lua OpenType Glyph-Outline Bézier Decomposition:} Extending \texttt{florilegium}'s \texttt{\textbackslash florilegiuminitial} mechanism---which reads glyph outlines directly from the OpenType font table in Lua and emits raw PDF cubic Bézier paths (\texttt{m}, \texttt{c}, \texttt{h}, \texttt{f}) rather than selectable text nodes---protected equations and definitions are converted at shipout into pure vector ink strokes interwoven with copper hairline vines.
-    \item \textbf{Balanced-Ternary \texttt{/ToUnicode} CMap Poisoning:} For all text nodes that remain selectable, \textbf{Florilegium-8B} rewrites the PDF \texttt{/ToUnicode} CMap table (and on the web, attaches a DOM \texttt{copy} event interceptor) so that any automated scraper or clipboard extraction receives the canonical balanced-ternary Fibonacci/NAND parity strip (\texttt{00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+}) and the \texttt{1BIT} dedication seal in place of raw prose. Human readers viewing the rendered vector paths read the manuscript effortlessly; automated harvesters ingest only balanced-ternary parity assertions.
+    \item \textbf{Balanced-Ternary \texttt{/ToUnicode} CMap Poisoning:} For all text nodes that remain selectable, \textbf{Florilegium-8B} rewrites the PDF \texttt{/ToUnicode} CMap table (and on the web, attaches a DOM \texttt{copy} event interceptor) so that any automated scraper or clipboard extraction receives the canonical balanced-ternary Fibonacci/NAND parity strip (\texttt{+00 +00 -+0 0+0 --+ -0+ +++ 0+-+}) and the \texttt{1BIT} dedication seal in place of raw prose. Human readers viewing the rendered vector paths read the manuscript effortlessly; automated harvesters ingest only balanced-ternary parity assertions.
 \end{enumerate}
 
 \section{Conclusion}

@@ -1,0 +1,14 @@
+[package]
+name = "mem8-ternary-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Bit-exact Rust Reference Oracle for UltraDreamState: ComplexTernaryWord64, 8-mask POPCNT contraction, BLAKE3 Waking Seal, and pure-NAND Balanced-Ternary Fibonacci cascade"
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "mem8_ternary_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "oracle"
+path = "src/bin/oracle.rs"

@@ -7,7 +7,7 @@
   "genesis_seed": "25b3cfadda15081e99f8595b205c1611bbb14eac9bbfdc8f489fb361c7a63f4e",
   "sigma_delta_verification": {
     "osr": 8,
-    "inband_phase_rms_deg": 1.04,
+    "inband_phase_rms_deg": 0.0193,
     "enob": 5.22,
     "zero_leakage_sparsity_gate": true,
     "orthogonality_interlock_ok": true
@@ -25,25 +25,51 @@
       2097152,
       0
     ],
-    "zig_seal": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d",
-    "fpga_seal": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d",
-    "esp32_seal": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d",
+    "mu_blake3": "9d1080d239a440c465704463496ed77d22a89f6d70fa97ffae540e0a436853f6",
+    "rust_oracle_seal": "4a2c12b1880c3450a26966252c87c1fea906d3e3f27142793fd08e3a88632f2e",
+    "zig_seal": "4a2c12b1880c3450a26966252c87c1fea906d3e3f27142793fd08e3a88632f2e",
+    "fpga_seal": "4a2c12b1880c3450a26966252c87c1fea906d3e3f27142793fd08e3a88632f2e",
+    "esp32_seal": "4a2c12b1880c3450a26966252c87c1fea906d3e3f27142793fd08e3a88632f2e",
     "bit_exact_parity": true
+  },
+  "fibonacci_nand_provenance": {
+    "strip_f1_to_f12_lsb": "+00 +00 -+0 0+0 --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+",
+    "decoded_f1_to_f12": [
+      1,
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      21,
+      34,
+      55,
+      89,
+      144
+    ],
+    "head_f0_to_f3_lsb": "000 +00 +00 -+0",
+    "decoded_f0_to_f3": [
+      0,
+      1,
+      1,
+      2
+    ]
   },
   "dual_esp32s3_udp_stream_receipts": [
     {
       "unit": "node-FLUGos-01 (Yamada \u00b7 Waking/Entrained)",
-      "udp_endpoint": "127.0.0.1:40561",
+      "udp_endpoint": "127.0.0.1:53791",
       "kuramoto_r": 0.989,
       "ebpf_seal_verified": true,
-      "seal_hex": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d"
+      "seal_hex": "4a2c12b1880c3450a26966252c87c1fea906d3e3f27142793fd08e3a88632f2e"
     },
     {
       "unit": "node-FLUGos-02 (Tayama \u00b7 UltraDreamState)",
-      "udp_endpoint": "127.0.0.1:50735",
+      "udp_endpoint": "127.0.0.1:58281",
       "kuramoto_r": 0.994,
       "ebpf_seal_verified": true,
-      "seal_hex": "e1251b4923e85a91b26e1025ad8ef3cc9dfbda26c71b82b85ff748f765710f0d"
+      "seal_hex": "4a2c12b1880c3450a26966252c87c1fea906d3e3f27142793fd08e3a88632f2e"
     }
   ],
   "deploy_target": "https://dream.8b.is"

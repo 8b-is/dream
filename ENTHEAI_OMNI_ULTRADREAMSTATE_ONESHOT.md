@@ -78,7 +78,7 @@ Every agent in the fanout topology operates on the exact same mathematical invar
 * **Fibonacci in Balanced Ternary via Pure NAND Gates (`OEIS A000045`):**
   * 64-bit ripple-carry adder built strictly from `nand(a, b)` computes $F(n) = F(n-1) + F(n-2)$ and encodes into LSB-first balanced ternary `{-1: '-', 0: '0', +1: '+'}`:
     ```text
-    00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+
+    +00 +00 -+0 0+0 --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+
     ```
   * Visible Parity Theorem: $2 \mid F(n) \iff 3 \mid n \iff \operatorname{popcnt}(B^+ \lor B^-) \equiv 0 \pmod 2$.
 

@@ -5,7 +5,7 @@
 local M = {}
 
 -- Canonical 12-cell Balanced-Ternary Fibonacci NAND Strip (OEIS A000045)
-M.FIBONACCI_NAND_STRIP = "00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+"
+M.FIBONACCI_NAND_STRIP = "+00 +00 -+0 0+0 --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+"
 M.BUDDHA_NATURE_SEAL   = "1BIT::{-1:KLESHA}->{0:NIRVANA}->{+1:TATHAGATAGARBHA}==={<3,<3,<3}+1"
 
 -- Delft-blue, Riva cyan, and Milarepa copper-gold ink palette (normalized RGB)

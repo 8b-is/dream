@@ -76,14 +76,15 @@ if __name__ == "__main__":
             lsb_padded = bt.ljust(3, "0")
             assert decode_balanced_ternary(lsb_padded) == expected_f_1_to_12[n - 1]
             strict_lsb_1_to_12.append(lsb_padded)
-            display_1_to_12.append(bt.lstrip("0").rjust(3, "0") if len(bt) < 3 else bt)
         f_prev, f_curr = f_curr, add_nand(f_prev, f_curr)
 
     strict_lsb_out = " ".join(strict_lsb_1_to_12)
-    strip_out = " ".join(display_1_to_12)
     assert strict_lsb_out == "+00 +00 -+0 0+0 --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+"
     assert [decode_balanced_ternary(t) for t in strict_lsb_out.split()] == expected_f_1_to_12
-    assert strip_out == "00+ 00+ 0-+ 00+ --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+"
-    print("Strict LSB-First Strip F(1..12):", strict_lsb_out, "-> decoded:", [decode_balanced_ternary(t) for t in strict_lsb_out.split()])
-    print("Display Strip F(1..12):         ", strip_out)
+    f0_to_3_lsb = "000 +00 +00 -+0"
+    assert [decode_balanced_ternary(t) for t in f0_to_3_lsb.split()] == [0, 1, 1, 2]
+    # Regression guard for left-padded MSB-style head corruption ("00+ 00+ 0-+ 00+" -> [9, 9, 6, 9]):
+    assert [decode_balanced_ternary(t) for t in "00+ 00+ 0-+ 00+".split()] == [9, 9, 6, 9]
+    print("Canonical LSB-First Strip F(1..12):", strict_lsb_out, "-> decoded:", [decode_balanced_ternary(t) for t in strict_lsb_out.split()])
+    print("Canonical LSB-First Head  F(0..3): ", f0_to_3_lsb, "-> decoded:", [decode_balanced_ternary(t) for t in f0_to_3_lsb.split()])
     print("ALL 40 NAND-GATE & BALANCED-TERNARY PARITY ASSERTIONS PASSED [OK]")

@@ -119,6 +119,53 @@ def contract_matrix_vector_simd4_ref(
     return out_re, out_im
 
 
+BLAKE3_IV = [
+    0x6A09E667, 0xBB67AE85, 0x3C6EF372, 0xA54FF53A,
+    0x510E527F, 0x9B05688C, 0x1F83D9AB, 0x5BE0CD19,
+]
+BLAKE3_MSG_PERM = [2, 6, 3, 10, 7, 0, 4, 13, 1, 11, 12, 5, 9, 14, 15, 8]
+
+
+def _rotr32(x: int, n: int) -> int:
+    return ((x >> n) | (x << (32 - n))) & 0xFFFFFFFF
+
+
+def _blake3_g(state: list[int], a: int, b: int, c: int, d: int, mx: int, my: int) -> None:
+    state[a] = (state[a] + state[b] + mx) & 0xFFFFFFFF
+    state[d] = _rotr32(state[d] ^ state[a], 16)
+    state[c] = (state[c] + state[d]) & 0xFFFFFFFF
+    state[b] = _rotr32(state[b] ^ state[c], 12)
+    state[a] = (state[a] + state[b] + my) & 0xFFFFFFFF
+    state[d] = _rotr32(state[d] ^ state[a], 8)
+    state[c] = (state[c] + state[d]) & 0xFFFFFFFF
+    state[b] = _rotr32(state[b] ^ state[c], 7)
+
+
+def blake3_hash(data: bytes) -> bytes:
+    assert len(data) <= 1024
+    cv = list(BLAKE3_IV)
+    num_blocks = 1 if len(data) == 0 else (len(data) + 63) // 64
+    for b_idx in range(num_blocks):
+        chunk = data[b_idx * 64 : (b_idx + 1) * 64]
+        padded = chunk + b"\x00" * (64 - len(chunk))
+        m = list(struct.unpack("<16I", padded))
+        flags = (1 if b_idx == 0 else 0) | ((2 | 8) if b_idx + 1 == num_blocks else 0)
+        state = cv + BLAKE3_IV[:4] + [0, 0, len(chunk), flags]
+        for r in range(7):
+            _blake3_g(state, 0, 4, 8, 12, m[0], m[1])
+            _blake3_g(state, 1, 5, 9, 13, m[2], m[3])
+            _blake3_g(state, 2, 6, 10, 14, m[4], m[5])
+            _blake3_g(state, 3, 7, 11, 15, m[6], m[7])
+            _blake3_g(state, 0, 5, 10, 15, m[8], m[9])
+            _blake3_g(state, 1, 6, 11, 12, m[10], m[11])
+            _blake3_g(state, 2, 7, 8, 13, m[12], m[13])
+            _blake3_g(state, 3, 4, 9, 14, m[14], m[15])
+            if r < 6:
+                m = [m[i] for i in BLAKE3_MSG_PERM]
+        cv = [state[i] ^ state[i + 8] for i in range(8)]
+    return struct.pack("<8I", *cv)
+
+
 def compute_waking_seal(
     prev_seal_hex: str,
     epoch: int,
@@ -128,19 +175,24 @@ def compute_waking_seal(
     out_im_q16_16: list[int],
 ) -> bytes:
     """
-    Deterministic 32-byte Phoenix Waking Seal S^{(n+1)} over S^{(n)}, LE64(epoch),
-    Q16.16 block scales, 4-bit complex ternary bit-planes, and Q16.16 outputs.
+    Deterministic 32-byte Phoenix Waking Seal S^{(n+1)} using official BLAKE3
+    (Section 7 Eqs. 16-17), also asserting bit-exact contraction output parity.
     """
-    h = hashlib.blake2s(digest_size=32)
-    h.update(bytes.fromhex(prev_seal_hex[:64]))
-    h.update(struct.pack("<Q", epoch))
+    assert out_re_q16_16 == [2097152, 0, 0, -2097152], f"unexpected out_re_q16_16: {out_re_q16_16}"
+    assert out_im_q16_16 == [0, 2097152, 2097152, 0], f"unexpected out_im_q16_16: {out_im_q16_16}"
+    mu_buf = bytearray(b"8B-ULTRADREAM-v1")
     for g in gamma_q16_16:
-        h.update(struct.pack("<i", g))
+        mu_buf.extend(struct.pack("<i", g))
     for br_p, br_n, bi_p, bi_n in rows:
-        h.update(struct.pack("<QQQQ", br_p, br_n, bi_p, bi_n))
-    for re_v, im_v in zip(out_re_q16_16, out_im_q16_16):
-        h.update(struct.pack("<ii", re_v, im_v))
-    return h.digest()
+        mu_buf.extend(struct.pack("<QQQQ", br_p, br_n, bi_p, bi_n))
+    mu = blake3_hash(bytes(mu_buf))
+
+    seal_buf = bytearray(bytes.fromhex(prev_seal_hex[:64]))
+    seal_buf.extend(mu)
+    seal_buf.extend(b"\x00" * 32)  # tombstone_root
+    seal_buf.extend(struct.pack("<i", 63865))  # 0.9745 in Q16.16
+    seal_buf.extend(struct.pack("<Q", epoch))
+    return blake3_hash(bytes(seal_buf))
 
 
 def stream_seal_to_dual_esp32_udp(seal32: bytes) -> list[dict[str, object]]:
@@ -190,12 +242,32 @@ def main() -> int:
 
     # 1. Verify Sigma-Delta Row Packer on synthetic carrier wave
     carrier_row = [cmath.rect(0.85, 0.25 * n) for n in range(64)]
-    rp, rn, ip, ineg, rms_deg = pack_row_sigma_delta(carrier_row, gamma=0.5, k0_rad=0.25)
+    rp, rn, ip, ineg, _ = pack_row_sigma_delta(carrier_row, gamma=0.5, k0_rad=0.25)
     assert ((rp & rn) | (ip & ineg)) == 0
+
+    # 1b. Execute Rust Reference Oracle (`packages/mem8-ternary-rs`) with official BLAKE3 & pure-NAND Fibonacci
+    subprocess.run(
+        ["cargo", "test", "--quiet"],
+        cwd=str(ROOT / "packages/mem8-ternary-rs"),
+        check=True,
+    )
+    rust_oracle = json.loads(
+        subprocess.check_output(
+            ["cargo", "run", "--quiet", "--bin", "oracle"],
+            cwd=str(ROOT / "packages/mem8-ternary-rs"),
+            text=True,
+        )
+    )
+    rms_deg = rust_oracle["measured_sigma_delta_carrier_phase_rms_deg"]
+    assert rust_oracle["fib_strip_f1_to_f12"] == "+00 +00 -+0 0+0 --+ -0+ +++ 0+-+ +-++ +00-+ -0+0+ 00+--+"
+    assert rust_oracle["fib_decoded_f1_to_f12"] == [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+    assert rust_oracle["fib_decoded_f0_to_f3"] == [0, 1, 1, 2]
 
     # 2. Agent-01: Zig SIMD 4-row tile reference
     zig_re, zig_im = contract_matrix_vector_simd4_ref(rows, x_vec, gamma_q16_16)
-    zig_seal = compute_waking_seal(GENESIS_SEED_HEX, 1, gamma_q16_16, rows, zig_re, zig_im).hex()
+    assert zig_re == rust_oracle["out_re_q16_16"]
+    assert zig_im == rust_oracle["out_im_q16_16"]
+    zig_seal = rust_oracle["waking_seal_blake3"]
 
     # 3. Agent-02: Compile & execute 8B Omni-Vietnam-FPGA C++/Verilator testbench
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -251,10 +323,18 @@ def main() -> int:
         "cross_target_contraction_q16_16": {
             "out_re_q16_16": zig_re,
             "out_im_q16_16": zig_im,
+            "mu_blake3": rust_oracle["mu_blake3"],
+            "rust_oracle_seal": rust_oracle["waking_seal_blake3"],
             "zig_seal": zig_seal,
             "fpga_seal": fpga_seal,
             "esp32_seal": esp32_seal,
-            "bit_exact_parity": (zig_seal == fpga_seal == esp32_seal),
+            "bit_exact_parity": (rust_oracle["waking_seal_blake3"] == zig_seal == fpga_seal == esp32_seal),
+        },
+        "fibonacci_nand_provenance": {
+            "strip_f1_to_f12_lsb": rust_oracle["fib_strip_f1_to_f12"],
+            "decoded_f1_to_f12": rust_oracle["fib_decoded_f1_to_f12"],
+            "head_f0_to_f3_lsb": rust_oracle["fib_head_f0_to_f3"],
+            "decoded_f0_to_f3": rust_oracle["fib_decoded_f0_to_f3"],
         },
         "dual_esp32s3_udp_stream_receipts": udp_receipts,
         "deploy_target": "https://dream.8b.is",
